@@ -1,23 +1,22 @@
-# MuchTodo Containerization & Kubernetes Deployment
+# StartTech Full-Stack Application (`much-to-do`)
 
-## Project Overview
-This project containerizes a Golang backend API and a MongoDB database, deploying them to a local Kubernetes cluster.
+This repository contains the core application code for the StartTech production platform. It consists of a decoupled architecture utilizing a modern single-page frontend application and a robust containerized backend API layer.
 
-## Features
-- **Multi-stage Dockerfile**: Optimized for size and security.
-- **Docker Compose**: Orchestrates local development with persistent volumes.
-- **Kubernetes Manifests**: Includes Deployments, Services, ConfigMaps, Secrets, and Ingress.
-- **Automation Scripts**: Easy-to-use shell scripts for building and deploying.
+## Repository Structure
+* `/frontend`: React client bundle optimized with Vite.
+* `/backend`: Golang production API serving system traffic.
+* `/scripts`: Dedicated shell utilities for administrative tasks and infrastructure maintenance.
+* `/.github/workflows`: Fully integrated continuous integration and deployment pipelines.
 
-## How to Run
+##  Local Quickstart
+To initialize components locally for exploratory testing:
 
-### 1. Docker Setup
-To build and run the application using Docker Compose:
+### Frontend Setup
 ```bash
-./scripts/docker-build.sh
-./scripts/docker-run.sh
+cd frontend
+npm install
+npm run dev
 
-### 2. Kubernetes Deployment
-To deploy the application to your local cluster:
-./scripts/k8s-deploy.sh
-
+cd backend
+go mod download
+go run cmd/api/main.go
